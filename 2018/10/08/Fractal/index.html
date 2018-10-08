@@ -104,7 +104,7 @@
 <meta property="og:locale" content="en-US">
 <meta property="og:image" content="https://wx1.sinaimg.cn/mw690/eb01748fgy1fvrwm4us3gj208c0bqgln.jpg">
 <meta property="og:image" content="https://wx4.sinaimg.cn/mw690/eb01748fgy1fvrxnqcrqaj205805840z.jpg">
-<meta property="og:updated_time" content="2018-10-08T19:14:56.000Z">
+<meta property="og:updated_time" content="2018-10-08T19:36:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TP1 Mandelbrot Set Fractal">
 <meta name="twitter:description" content="Prepare your project Node.jsInstall node from the official website: https://nodejs.org.Create a new folder and add an app.js script, whose contents are as follows:1console.log(&quot;Hello World&quot;) Open a ne">
@@ -349,7 +349,7 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-10-08T21:14:56+02:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2018-10-08T21:36:21+02:00">
                 2018-10-08
               </time>
             
@@ -474,7 +474,7 @@
 </li>
 </ul>
 <h1 id="Generate-a-random-image"><a href="#Generate-a-random-image" class="headerlink" title="Generate a random image"></a>Generate a random image</h1><p>Thanks to the jimp library, we will be able to create and save images. The dimension will be requested thanks to the previous question.</p>
-<p>To install jimp: npm install jimp –save. The dependency is installed and referenced in package.json.</p>
+<p>To install jimp: npm install jimp —save. The dependency is installed and referenced in package.json.</p>
 <p>Here are some excerpts from the documentation to manipulate the library:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Jimp = <span class="built_in">require</span>(<span class="string">"jimp"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// open a file called "lenna.png"</span></span><br><span class="line">Jimp.read(<span class="string">"lenna.png"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, image</span>) </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">image.write(<span class="string">"lena-small-bw.jpg"</span>) <span class="comment">// save</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> image = <span class="keyword">new</span> Jimp(<span class="number">256</span>, <span class="number">256</span>)</span><br><span class="line"></span><br><span class="line">image.getPixelColor(x, y) <span class="comment">// colour of that pixel e.g. 0xFFFFFFFF</span></span><br><span class="line">image.setPixelColor(hex, x, y) <span class="comment">// sets the colour of that pixel</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// e.g. converts 255, 255, 255, 255 to 0xFFFFFFFF </span></span><br><span class="line">Jimp.rgbaToInt(r, g, b, a)</span><br><span class="line"></span><br><span class="line"><span class="comment">// e.g. converts 0xFFFFFFFF to &#123;r: 255, g: 255, b: 255, a:255&#125; </span></span><br><span class="line">Jimp.intToRGBA(hex)</span><br><span class="line"></span><br><span class="line"><span class="comment">//https://www.npmjs.com/package/jimp</span></span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>Pixels have 4 components (red, green, blue and alpha). Alpha at 255 equals a fully opaque color, 0 at a transparent color.</li>
@@ -499,21 +499,29 @@
 </ul>
 <p>We consider that the series diverges as soon as the modulus of a term exceeds 2. When a divergence is detected, we return n, the rank from which $ | Z_n | &gt; 2 $. We calculate at most 20 terms: beyond, we suppose that the sequence converges and we return 20.</p>
 <p>We give the algorithm in algorithmic language. Translate it as a function <code>getMandelbrotDivergenceSpeed (Complex): Number</code>.</p>
-<p><table></table></p>
-<p><tr></tr></p>
-<p><th colspan="2">SpeedDevergence (c: Complex): integer</th><br></p>
-<p><tr></tr></p>
-<p><th>Data:</th></p>
-<p><td>c: Complex, the coordinates of a pixel such as $(c.re, c.im)$ $E [0,1] ^2$</td><br></p>
-<p><tr></tr></p>
-<p><th>Local variable:</th></p>
-<p><td>z: Complex, the term of the sequence $Z$ at rank $n$</td><br></p>
-<p><tr></tr></p>
-<p><th>Local variable:</th></p>
-<p><td>n: integer the currently calculated rank </td><br></p>
-<p><tr></tr></p>
-<p><th>Result:</th></p>
-<p><td>Returns the rank $[0, 19]$ from which the divergence is found or $20$ otherwise</td><br><br><br>beginning</p>
+<table>
+<tr>
+<th colspan="2">SpeedDevergence (c: Complex): integer</th>
+</tr>
+<tr>
+<th>Data:</th>
+<td>c: Complex, the coordinates of a pixel such as $(c.re, c.im)$ $E [0,1] ^2$</td>
+</tr>
+<tr>
+<th>Local variable:</th>
+<td>z: Complex, the term of the sequence $Z$ at rank $n$</td>
+</tr>
+<tr>
+<th>Local variable:</th>
+<td>n: integer the currently calculated rank </td>
+</tr>
+<tr>
+<th>Result:</th>
+<td>Returns the rank $[0, 19]$ from which the divergence is found or $20$ otherwise</td>
+</tr>
+</table>
+
+<p>beginning</p>
 <ul>
 <li>$z ← Complex (0, 0)$</li>
 <li>$n ← 0$</li>
@@ -536,7 +544,7 @@
 <li>n = 20 returns black.</li>
 </ul>
 <p>Design a <code>buildGreyFractal (size, name)</code> function that takes parameters in pixels and the name to save the image to disk.</p>
-<p>##See the entire fractal<br>Currently, you only see a quarter of the fractal. Why? Because we associate with our pixel coordinates strictly positive values.</p>
+<h1 id="See-the-entire-fractal"><a href="#See-the-entire-fractal" class="headerlink" title="See the entire fractal"></a>See the entire fractal</h1><p>Currently, you only see a quarter of the fractal. Why? Because we associate with our pixel coordinates strictly positive values.</p>
 <p>For example, on an image of 128x128px:</p>
 <ul>
 <li>currently</li>
@@ -557,7 +565,7 @@
 </ul>
 <h1 id="A-fractal-in-color"><a href="#A-fractal-in-color" class="headerlink" title="A fractal in color"></a>A fractal in color</h1><p>To enjoy your fractal in color, you can use the following function<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">speedToColor</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">n = <span class="built_in">Math</span>.min(n / <span class="number">50</span>, <span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> s = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> l = <span class="number">0.6</span>, r, g, b</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (s === <span class="number">0</span>) &#123;</span><br><span class="line">r = g = b = l <span class="comment">// achromatic</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hue2rgb</span>(<span class="params">p, q, t</span>) </span>&#123;</span><br><span class="line"><span class="keyword">if</span>(t &lt; <span class="number">0</span>) t += <span class="number">1</span></span><br><span class="line"><span class="keyword">if</span>(t &gt; <span class="number">1</span>) t -= <span class="number">1</span></span><br><span class="line"><span class="keyword">if</span>(t &lt; <span class="number">1</span>/<span class="number">6</span>) <span class="keyword">return</span> p + (q - p) * <span class="number">6</span> * t</span><br><span class="line"><span class="keyword">if</span>(t &lt; <span class="number">1</span>/<span class="number">2</span>) <span class="keyword">return</span> q</span><br><span class="line"><span class="keyword">if</span>(t &lt; <span class="number">2</span>/<span class="number">3</span>) <span class="keyword">return</span> p + (q - p) * (<span class="number">2</span>/<span class="number">3</span> - t) * <span class="number">6</span></span><br><span class="line"><span class="keyword">return</span> p</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> q = l &lt; <span class="number">0.5</span> ? l * (<span class="number">1</span> + s) : l + s - l * s</span><br><span class="line"><span class="keyword">var</span> p = <span class="number">2</span> * l - q</span><br><span class="line">r = hue2rgb(p, q, n + <span class="number">1</span>/<span class="number">3</span>)</span><br><span class="line">g = hue2rgb(p, q, n)</span><br><span class="line">b = hue2rgb(p, q, n - <span class="number">1</span>/<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> Jimp.rgbaToInt(</span><br><span class="line"><span class="built_in">Math</span>.round(r * <span class="number">255</span>),</span><br><span class="line"><span class="built_in">Math</span>.round(g * <span class="number">255</span>),</span><br><span class="line"><span class="built_in">Math</span>.round(b * <span class="number">255</span>),</span><br><span class="line"><span class="number">255</span></span><br><span class="line">)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>Of course, this is just one example of functions that can turn speed into color. You can design more original ones if you wish.</p>
-<h2 id="Notes-Smooth-iter"><a href="#Notes-Smooth-iter" class="headerlink" title="Notes: Smooth iter"></a>Notes: Smooth iter</h2><p><a href="http://blog.miskcoo.com/2016/10/mandelbrot-set" target="_blank" rel="noopener">http://blog.miskcoo.com/2016/10/mandelbrot-set</a></p>
+<h2 id="Smooth-iter"><a href="#Smooth-iter" class="headerlink" title="Smooth iter"></a>Smooth iter</h2><p><a href="http://blog.miskcoo.com/2016/10/mandelbrot-set" target="_blank" rel="noopener">http://blog.miskcoo.com/2016/10/mandelbrot-set</a></p>
 
       
     </div>
@@ -736,7 +744,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Prepare-your-project-Node-js"><span class="nav-text">Prepare your project Node.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Complex-numbers"><span class="nav-text">Complex numbers</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes-Complex-operation"><span class="nav-text">Notes: Complex operation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Read-a-number-from-the-console"><span class="nav-text">Read a number from the console</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes-JS-readline-Interface-module"><span class="nav-text">Notes: JS readline.Interface module</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes-Asyn-event"><span class="nav-text">Notes: Asyn event</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Generate-a-random-image"><span class="nav-text">Generate a random image</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-text">Notes:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes-different-image-form-PNG、JP"><span class="nav-text">Notes: different image form PNG、JP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes-read-write-image"><span class="nav-text">Notes: read/write image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes-JS-comments-and-How-to-name-method"><span class="nav-text">Notes: JS comments and How to name method</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#A-fractal-in-shades-of-gray"><span class="nav-text">A fractal in shades of gray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Go-further-on-the-manipulation-of-coordinates"><span class="nav-text">Go further on the manipulation of coordinates</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#A-fractal-in-color"><span class="nav-text">A fractal in color</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes-Smooth-iter"><span class="nav-text">Notes: Smooth iter</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Prepare-your-project-Node-js"><span class="nav-text">Prepare your project Node.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Complex-numbers"><span class="nav-text">Complex numbers</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes-Complex-operation"><span class="nav-text">Notes: Complex operation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Read-a-number-from-the-console"><span class="nav-text">Read a number from the console</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes-JS-readline-Interface-module"><span class="nav-text">Notes: JS readline.Interface module</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes-Asyn-event"><span class="nav-text">Notes: Asyn event</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Generate-a-random-image"><span class="nav-text">Generate a random image</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-text">Notes:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes-different-image-form-PNG、JP"><span class="nav-text">Notes: different image form PNG、JP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes-read-write-image"><span class="nav-text">Notes: read/write image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes-JS-comments-and-How-to-name-method"><span class="nav-text">Notes: JS comments and How to name method</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#A-fractal-in-shades-of-gray"><span class="nav-text">A fractal in shades of gray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#See-the-entire-fractal"><span class="nav-text">See the entire fractal</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Go-further-on-the-manipulation-of-coordinates"><span class="nav-text">Go further on the manipulation of coordinates</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#A-fractal-in-color"><span class="nav-text">A fractal in color</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Smooth-iter"><span class="nav-text">Smooth iter</span></a></li></ol></li></ol></div>
             
 
           </div>
