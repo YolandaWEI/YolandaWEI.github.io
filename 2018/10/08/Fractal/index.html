@@ -104,7 +104,7 @@
 <meta property="og:locale" content="en-US">
 <meta property="og:image" content="https://wx1.sinaimg.cn/mw690/eb01748fgy1fvrwm4us3gj208c0bqgln.jpg">
 <meta property="og:image" content="https://wx4.sinaimg.cn/mw690/eb01748fgy1fvrxnqcrqaj205805840z.jpg">
-<meta property="og:updated_time" content="2018-10-08T18:45:25.000Z">
+<meta property="og:updated_time" content="2018-10-08T19:14:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TP1 Mandelbrot Set Fractal">
 <meta name="twitter:description" content="Prepare your project Node.jsInstall node from the official website: https://nodejs.org.Create a new folder and add an app.js script, whose contents are as follows:1console.log(&quot;Hello World&quot;) Open a ne">
@@ -117,7 +117,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":true},
     fancybox: true,
     tabs: true,
     motion: true,
@@ -168,7 +168,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -184,7 +184,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">Leek in silence</p>
       
   </div>
 
@@ -349,7 +349,7 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-10-08T20:45:25+02:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2018-10-08T21:14:56+02:00">
                 2018-10-08
               </time>
             
@@ -499,9 +499,21 @@
 </ul>
 <p>We consider that the series diverges as soon as the modulus of a term exceeds 2. When a divergence is detected, we return n, the rank from which $ | Z_n | &gt; 2 $. We calculate at most 20 terms: beyond, we suppose that the sequence converges and we return 20.</p>
 <p>We give the algorithm in algorithmic language. Translate it as a function <code>getMandelbrotDivergenceSpeed (Complex): Number</code>.</p>
-<table><br><tr><br><th colspan="2">SpeedDevergence (c: Complex): integer</th><br></tr><br><tr><br><th>Data:</th><br><td>c: Complex, the coordinates of a pixel such as $(c.re, c.im)$ $E [0,1] ^2$</td><br></tr><br><tr><br><th>Local variable:</th><br><td>z: Complex, the term of the sequence $Z$ at rank $n$</td><br></tr><br><tr><br><th>Local variable:</th><br><td>n: integer the currently calculated rank </td><br></tr><br><tr><br><th>Result:</th><br><td>Returns the rank $[0, 19]$ from which the divergence is found or $20$ otherwise</td><br></tr><br></table>
-
-<p>beginning</p>
+<p><table></table></p>
+<p><tr></tr></p>
+<p><th colspan="2">SpeedDevergence (c: Complex): integer</th><br></p>
+<p><tr></tr></p>
+<p><th>Data:</th></p>
+<p><td>c: Complex, the coordinates of a pixel such as $(c.re, c.im)$ $E [0,1] ^2$</td><br></p>
+<p><tr></tr></p>
+<p><th>Local variable:</th></p>
+<p><td>z: Complex, the term of the sequence $Z$ at rank $n$</td><br></p>
+<p><tr></tr></p>
+<p><th>Local variable:</th></p>
+<p><td>n: integer the currently calculated rank </td><br></p>
+<p><tr></tr></p>
+<p><th>Result:</th></p>
+<p><td>Returns the rank $[0, 19]$ from which the divergence is found or $20$ otherwise</td><br><br><br>beginning</p>
 <ul>
 <li>$z ← Complex (0, 0)$</li>
 <li>$n ← 0$</li>
@@ -779,6 +791,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
