@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[test GitHub Corner inside page link to project]]></title>
+    <title><![CDATA[test]]></title>
     <url>%2F2018%2F10%2F08%2Ftest%2F</url>
-    <content type="text"><![CDATA[.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}} 渲染：theme/next/layout/_macro/post.swig 内插入 可参考图片容器自定义规则http://wellliu.com/2016/12/30/%E3%80%90%E8%BD%AC%E3%80%91Blog%E6%91%98%E8%A6%81%E9%85%8D%E5%9B%BE/]]></content>
+    <content type="text"><![CDATA[GitHub Corner inside page link to project .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}} 渲染：theme/next/layout/_macro/post.swig 内插入 可参考图片容器自定义规则http://wellliu.com/2016/12/30/%E3%80%90%E8%BD%AC%E3%80%91Blog%E6%91%98%E8%A6%81%E9%85%8D%E5%9B%BE/]]></content>
   </entry>
   <entry>
     <title><![CDATA[TP1 Mandelbrot Set Fractal]]></title>
