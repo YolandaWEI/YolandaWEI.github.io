@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Node,JS,Prj," />
+  <meta name="keywords" content="Node,JS,Asyn," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="Members YolandaW  Xuejun LIU">
-<meta name="keywords" content="Node,JS,Prj">
+<meta name="keywords" content="Node,JS,Asyn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Prj Web Chat">
-<meta property="og:url" content="http://YolandaWEI.github.io/2018/10/09/AsynPrj/index.html">
+<meta property="og:title" content="Event-drive Asynochronous Programming">
+<meta property="og:url" content="http://YolandaWEI.github.io/2018/10/07/Event-drive-Asynochronous-Programming/index.html">
 <meta property="og:site_name" content="manuscrit">
-<meta property="og:description" content="Members YolandaW  Xuejun LIU">
 <meta property="og:locale" content="en-US">
-<meta property="og:updated_time" content="2018-10-09T15:22:01.000Z">
+<meta property="og:image" content="https://pic3.zhimg.com/80/b922270259dece707ef6c6a50259a406_hd.png">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/15911/promises.png">
+<meta property="og:updated_time" content="2018-10-09T08:41:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Prj Web Chat">
-<meta name="twitter:description" content="Members YolandaW  Xuejun LIU">
+<meta name="twitter:title" content="Event-drive Asynochronous Programming">
+<meta name="twitter:image" content="https://pic3.zhimg.com/80/b922270259dece707ef6c6a50259a406_hd.png">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://YolandaWEI.github.io/2018/10/09/AsynPrj/"/>
+  <link rel="canonical" href="http://YolandaWEI.github.io/2018/10/07/Event-drive-Asynochronous-Programming/"/>
 
 
 
 
 
-  <title>Prj Web Chat | manuscrit</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Event-drive Asynochronous Programming | manuscrit</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://YolandaWEI.github.io/2018/10/09/AsynPrj/">
+    <link itemprop="mainEntityOfPage" href="http://YolandaWEI.github.io/2018/10/07/Event-drive-Asynochronous-Programming/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="安静的韭菜">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Prj Web Chat</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -324,8 +324,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-09T11:15:58+02:00">
-                2018-10-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-07T00:16:03+02:00">
+                2018-10-07
               </time>
             
 
@@ -376,7 +376,7 @@
                 </span>
                 
                 <span title="Words count in article">
-                  56
+                  453
                 </span>
               
 
@@ -390,7 +390,7 @@
                 </span>
                 
                 <span title="Reading time">
-                  1
+                  2
                 </span>
               
             </div>
@@ -411,13 +411,23 @@
       
 
       
-        <h3 id="Members"><a href="#Members" class="headerlink" title="Members"></a>Members</h3><ul>
-<li><a href="https://github.com/YolandaWEI" target="_blank" rel="noopener">YolandaW</a> </li>
-<li><a href="https://github.com/captainneko" target="_blank" rel="noopener">Xuejun LIU</a></li>
-<li><a href=""></a></li>
+        <p></p><p></p><br><a id="more"></a><p></p>
+<h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><h2 id="Declaration-var-const-let"><a href="#Declaration-var-const-let" class="headerlink" title="Declaration: var\const\let"></a>Declaration: var\const\let</h2><p>Only use let except you know it would never change.<br>A variable declared with <code>var</code> whose scope is within the function in which the statement is located, and there is a variable promotion phenomenon;<br>A variable declared with <code>let</code> whose scope is within the code block in which the statement is located, and there is no variable promotion;<br>The use of const declares a <code>const</code>, and the value of the constant cannot be modified in the code that appears later.</p>
+<h2 id="c-f"><a href="#c-f" class="headerlink" title="=== c.f. =="></a>=== c.f. ==</h2><p>Always use=== unless you have specially reason to use ==, it.<br>=== will check both value and type.</p>
+<blockquote>
+<p><a href="https://www.zhihu.com/question/31442029" target="_blank" rel="noopener">from Zhihu@Belleve</a><br>Red：===<br>Orange：==<br>Yellow：&lt;= and &gt;= established，== not established<br>Blue：only &gt;= established<br>Green：only &lt;= established<br><img src="https://pic3.zhimg.com/80/b922270259dece707ef6c6a50259a406_hd.png" alt="===and== from Zhihu@Belleve"></p>
+</blockquote>
+<h2 id="Template-String-var"><a href="#Template-String-var" class="headerlink" title="Template String ${var}"></a>Template String ${var}</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> firstName = <span class="string">'Jake'</span>;</span><br><span class="line"><span class="keyword">var</span> lastName = <span class="string">'Rawr'</span>;</span><br><span class="line"><span class="comment">//normal String</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'My name is '</span> + firstName + <span class="string">' '</span> + lastName);</span><br><span class="line"><span class="comment">//Template String</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`My name is <span class="subst">$&#123;firstName&#125;</span> <span class="subst">$&#123;lastName&#125;</span>`</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Fuctions-and-arrow-funcitons"><a href="#Fuctions-and-arrow-funcitons" class="headerlink" title="Fuctions and arrow funcitons"></a>Fuctions and arrow funcitons</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">fuction inc1=<span class="number">1</span>(n)&#123;</span><br><span class="line"><span class="keyword">return</span> n + <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> inc2=<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;<span class="keyword">return</span> n+<span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">const</span> inc3=<span class="function">(<span class="params">n</span>)=&gt;</span>&#123;<span class="keyword">return</span> n+<span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">const</span> inc4=<span class="function"><span class="params">n</span>=&gt;</span>n+<span class="number">4</span></span><br><span class="line"><span class="comment">//they are all same.</span></span><br><span class="line"></span><br><span class="line">fucntion adder(inc) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="function">(<span class="params">n</span>)=&gt;</span>n+inc</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> addOne=adder(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">const</span> addTwo=adder(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">let</span> a=addOne(<span class="number">5</span>)<span class="comment">//a=6</span></span><br><span class="line"><span class="keyword">let</span> b=addTwo(<span class="number">5</span>)<span class="comment">//b=7</span></span><br><span class="line"><span class="keyword">let</span> c=adder(<span class="number">2</span>)(<span class="number">1</span>)<span class="comment">//c=3 </span></span><br><span class="line"><span class="comment">//use pointers to point the functions' addres .</span></span><br></pre></td></tr></table></figure>
+<h2 id="JavaScript-Scope-（作用域）-Fuction-level"><a href="#JavaScript-Scope-（作用域）-Fuction-level" class="headerlink" title="JavaScript Scope （作用域）: Fuction-level"></a>JavaScript Scope （作用域）: Fuction-level</h2><p>In JS there are two types of scope: Local scope and Global scope<br><strong>JavaScript has function scope: Each function creates a new scope.</strong> The traditional C-like language, whose scope is block-level scope, curly brackets<code>{}</code> are a scope. But for JavaScript, its scope is a function-level scope, such as an <code>if</code> conditional statement, which is not an independent scope:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line"><span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">// 2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Create a temporary scope from a self-executing function</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (x) &#123;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line"><span class="comment">// some other code</span></span><br><span class="line">&#125;());</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// x is still 1.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Event-drive-and-Asynchronous"><a href="#Event-drive-and-Asynchronous" class="headerlink" title="Event-drive and Asynchronous"></a>Event-drive and Asynchronous</h2><p>There is only one main thread in JS engine. When it is executing JS code block, other code block are not allowed to be executed, but the code block of event machine and callback will be added into task queue (or called stack).This event or callback function will be executed when a trigger meet the event or callback.</p>
+<h3 id="Callbacks"><a href="#Callbacks" class="headerlink" title="Callbacks"></a>Callbacks</h3><p>callbacks are historically the only way to deal with functions that return a result asynchronously.</p>
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">Promise</a></h3><p>A Promise is in one of these states:</p>
+<ul>
+<li>pending: initial state, neither fulfilled nor rejected.</li>
+<li>fulfilled: meaning that the operation completed successfully.</li>
+<li>rejected: meaning that the operation failed.<br><img src="https://mdn.mozillademos.org/files/15911/promises.png" alt="Promise state"></li>
 </ul>
-<a id="more"></a>
-<p><a href="https://github.com/AsynPrj" class="github-corner" aria-label="View source on GitHub" target="_blank" rel="noopener"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#428BCA; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></p>
 
       
     </div>
@@ -439,7 +449,7 @@
           
             <a href="/tags/JS/" rel="tag"># JS</a>
           
-            <a href="/tags/Prj/" rel="tag"># Prj</a>
+            <a href="/tags/Asyn/" rel="tag"># Asyn</a>
           
         </div>
       
@@ -452,15 +462,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/08/MSFractal/" rel="next" title="TP1 Mandelbrot Set Fractal">
-                <i class="fa fa-chevron-left"></i> TP1 Mandelbrot Set Fractal
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/08/MSFractal/" rel="prev" title="TP1 Mandelbrot Set Fractal">
+                TP1 Mandelbrot Set Fractal <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -605,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Members"><span class="nav-text">Members</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-text">Syntax</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Declaration-var-const-let"><span class="nav-text">Declaration: var\const\let</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-f"><span class="nav-text">=== c.f. ==</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Template-String-var"><span class="nav-text">Template String ${var}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fuctions-and-arrow-funcitons"><span class="nav-text">Fuctions and arrow funcitons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-Scope-（作用域）-Fuction-level"><span class="nav-text">JavaScript Scope （作用域）: Fuction-level</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-drive-and-Asynchronous"><span class="nav-text">Event-drive and Asynchronous</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Callbacks"><span class="nav-text">Callbacks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise"><span class="nav-text">Promise</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1098,6 +1108,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
