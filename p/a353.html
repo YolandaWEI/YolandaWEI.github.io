@@ -100,12 +100,12 @@
 <meta property="og:url" content="http://YolandaWEI.github.io/p/a353.html">
 <meta property="og:site_name" content="manuscrit">
 <meta property="og:locale" content="en-US">
-<meta property="og:image" content="http://yolandawei.github.io/p/undefined/coord.jpg">
-<meta property="og:image" content="http://yolandawei.github.io/p/undefined/random.jpg">
-<meta property="og:updated_time" content="2018-10-10T14:52:56.000Z">
+<meta property="og:image" content="http://yolandawei.github.io/p/a353/coord.jpg">
+<meta property="og:image" content="http://yolandawei.github.io/p/a353/random.jpg">
+<meta property="og:updated_time" content="2018-10-15T21:55:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TP1 Mandelbrot Set Fractal">
-<meta name="twitter:image" content="http://yolandawei.github.io/p/undefined/coord.jpg">
+<meta name="twitter:image" content="http://yolandawei.github.io/p/a353/coord.jpg">
 
 
 
@@ -358,6 +358,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/p/a353.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/p/a353.html" itemprop="commentCount"></span>
+                </a>
+              </span> 
+            
           
 
           
@@ -429,7 +439,7 @@
 <ul>
 <li>The sum<br>$ z_1+z_2=(x_1+x_2)+i(y_1+y_2) $</li>
 </ul>
-<img src="/p/undefined/coord.jpg" title="$ z = x + iy $ and $ z=re^{i\varphi} $">
+<img src="/p/a353/coord.jpg" title="$ z = x + iy $ and $ z=re^{i\varphi} $">
 <ul>
 <li>The module<br>In this way, $ r=|z| $, and $ x=rcos\varphi $, $ y=rsin\varphi $.<br>So we can get $ |z|=\sqrt{x^2+y^2} $</li>
 <li>The square<br>$ z^2=(x+iy)^2=x^2+i2xy+(iy)^2=(x^2-y^2)+i2xy $</li>
@@ -460,7 +470,7 @@
 </ul>
 <p>Design a <code>getRandomPixel()</code> function that returns a hexadecimal color at random, but with an alpha component = 255.</p>
 <p>Design the <code>buildRandomImage (size, name)</code> function that takes parameters in pixels and the name to save the image to disk. You will call this function inside the callback passed to <code>readline.question(cb)</code>.</p>
-<img src="/p/undefined/random.jpg" title="random color image">
+<img src="/p/a353/random.jpg" title="random color image">
 <p>After running your program, you should get an image similar to the example shown here (size: 128px).</p>
 <h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes:"></a>Notes:</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span></span><br><span class="line"><span class="comment">/* get a random int number in [minNum,maxNum] in hexadecimal String</span></span><br><span class="line"><span class="comment">* @method randomNum()</span></span><br><span class="line"><span class="comment">* @param minNum&#123;Integer&#125;</span></span><br><span class="line"><span class="comment">* @param maxNum&#123;Integer&#125;</span></span><br><span class="line"><span class="comment">* @return &#123;String&#125; (hexadecimal)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">randomNum</span>(<span class="params">minNum, maxNum</span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * (maxNum - minNum + <span class="number">1</span>) + minNum, <span class="number">10</span>)</span><br><span class="line"><span class="keyword">if</span> (num &lt; <span class="number">16</span>) &#123;</span><br><span class="line"><span class="comment">//if the number is just in one bit, add a 0 in high-order position ("e"-&gt;"0e")</span></span><br><span class="line">num = <span class="string">'0'</span> + num.toString(<span class="number">16</span>) </span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">num=num.toString(<span class="number">16</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> num; </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* get a random rgb pixel color with 255 alpha </span></span><br><span class="line"><span class="comment">* @method getRandomPixel()</span></span><br><span class="line"><span class="comment">* @return &#123;String&#125; (hexadecimal and start with '0x')</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandomPixel</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> R = randomNum(<span class="number">0</span>, <span class="number">255</span>)</span><br><span class="line"><span class="keyword">var</span> G = randomNum(<span class="number">0</span>, <span class="number">255</span>)</span><br><span class="line"><span class="keyword">var</span> B = randomNum(<span class="number">0</span>, <span class="number">255</span>)</span><br><span class="line"><span class="keyword">return</span> <span class="string">'0x'</span>+R+G+B+<span class="string">'ff'</span> <span class="comment">//with 255 alpha</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* get a random picture in size x size px with 255 alpha RGBA PNG on DeskTop</span></span><br><span class="line"><span class="comment">* @method buildRandomPixel()</span></span><br><span class="line"><span class="comment">* @param size</span></span><br><span class="line"><span class="comment">* @param name image name(without)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">buildRandomImage</span>(<span class="params">size, name</span>) </span>&#123;</span><br><span class="line"><span class="keyword">const</span> DESKTOP_URL = <span class="string">"C:\\Users\\YolandaW\\Desktop\\"</span></span><br><span class="line"><span class="comment">//Generate a random image</span></span><br><span class="line"><span class="keyword">const</span> Jimp = <span class="built_in">require</span>(<span class="string">"jimp"</span>)</span><br><span class="line"><span class="keyword">var</span> image = <span class="keyword">new</span> Jimp(size, size) </span><br><span class="line"><span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt; size ; i++) &#123;</span><br><span class="line"><span class="keyword">for</span> ( j = <span class="number">0</span>; j &lt; size; j++) &#123;</span><br><span class="line">image.setPixelColor(<span class="built_in">parseInt</span>(getRandomPixel()), i, j) <span class="comment">// sets the colour of that pixel</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">name = name + <span class="string">".png"</span> <span class="comment">//save on Desktop</span></span><br><span class="line">image.write(DESKTOP_URL+name) <span class="comment">//save image  </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">buildRandomImage(<span class="number">256</span>, <span class="string">"image"</span>)</span><br></pre></td></tr></table></figure>
 <p>After combine two question together</p>
@@ -650,7 +660,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -661,7 +671,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -672,7 +682,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -683,7 +693,7 @@
         
         <div class="category-all-page">
 	     <div class="category-all"> 
-		  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/uncategories/Event-drive-Asynochronous-Programming/">Event-drive Asynochronous Programming</a></li></ul>
+		  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/uncategories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/uncategories/Event-drive-Asynochronous-Programming/">Event-drive Asynochronous Programming</a></li></ul>
 	     </div>
         </div>
 
