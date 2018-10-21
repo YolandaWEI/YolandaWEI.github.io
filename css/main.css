@@ -1352,7 +1352,7 @@ pre .javascript .function {
 .post-body {
   overflow-wrap: break-word;
   word-wrap: break-word;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Noto Serif CJK SC", "Source Han Serif SC", "Source Han Serif", source-han-serif-sc, serif, 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .post-body span.exturl .fa {
   font-size: 14px;
@@ -1364,6 +1364,16 @@ pre .javascript .function {
   cursor: pointer;
   cursor: zoom-in;
   cursor: -webkit-zoom-in;
+}
+.post-body p a {
+  color: #428bca;
+  border-bottom: none;
+  text-decoration: none;
+}
+.post-body p a:hover {
+  color: #8dd9fe;
+  font-weight: blod;
+  text-decoration: none;
 }
 .post-body .image-caption,
 .post-body .figure .caption {
@@ -1651,7 +1661,7 @@ pre .javascript .function {
 .posts-expand .post-meta {
   margin: 3px 0 60px 0;
   color: #999;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Noto Serif CJK SC", "Source Han Serif SC", "Source Han Serif", source-han-serif-sc, serif, 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 12px;
   text-align: center;
 }
@@ -2004,7 +2014,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e5ff4f;
+  background: #37a6ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3018,4 +3028,37 @@ img.img-topic {
 }
 a.sidebar-category:hover {
   color: $8dd9fe;
+}
+a {
+  border-bottom: none;
+  text-decoration: none;
+}
+a.hover {
+  border-bottom: none;
+  text-decoration: none;
+}
+blockquote,
+.stressed {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 2.5em 0;
+  padding: 0 0 0 50px;
+  color: #555;
+  border-left: none;
+}
+blockquote:before,
+.stressed-quote:before {
+  content: "\201C";
+  display: block;
+  font-family: times;
+  font-style: normal;
+  font-size: 48px;
+  color: #444;
+  font-weight: bold;
+  line-height: 30px;
+  margin-left: -50px;
+  position: absolute;
+}
+.posts-expand .post-eof {
+  margin: 10px auto 10px;
 }
