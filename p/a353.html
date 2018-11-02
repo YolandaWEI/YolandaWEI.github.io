@@ -482,7 +482,7 @@
 </li>
 </ul>
 <h1 id="Generate-a-random-image"><a href="#Generate-a-random-image" class="headerlink" title="Generate a random image"></a>Generate a random image</h1><p>Thanks to the jimp library, we will be able to create and save images. The dimension will be requested thanks to the previous question.</p>
-<p>To install jimp: npm install jimp —save. The dependency is installed and referenced in package.json.</p>
+<p>To install jimp: npm install jimp –save. The dependency is installed and referenced in package.json.</p>
 <p>Here are some excerpts from the documentation to manipulate the library:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Jimp = <span class="built_in">require</span>(<span class="string">"jimp"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// open a file called "lenna.png"</span></span><br><span class="line">Jimp.read(<span class="string">"lenna.png"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, image</span>) </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">image.write(<span class="string">"lena-small-bw.jpg"</span>) <span class="comment">// save</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> image = <span class="keyword">new</span> Jimp(<span class="number">256</span>, <span class="number">256</span>)</span><br><span class="line"></span><br><span class="line">image.getPixelColor(x, y) <span class="comment">// colour of that pixel e.g. 0xFFFFFFFF</span></span><br><span class="line">image.setPixelColor(hex, x, y) <span class="comment">// sets the colour of that pixel</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// e.g. converts 255, 255, 255, 255 to 0xFFFFFFFF </span></span><br><span class="line">Jimp.rgbaToInt(r, g, b, a)</span><br><span class="line"></span><br><span class="line"><span class="comment">// e.g. converts 0xFFFFFFFF to &#123;r: 255, g: 255, b: 255, a:255&#125; </span></span><br><span class="line">Jimp.intToRGBA(hex)</span><br><span class="line"></span><br><span class="line"><span class="comment">//https://www.npmjs.com/package/jimp</span></span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>Pixels have 4 components (red, green, blue and alpha). Alpha at 255 equals a fully opaque color, 0 at a transparent color.</li>
@@ -506,27 +506,7 @@
 </ul>
 <p>We consider that the series diverges as soon as the modulus of a term exceeds 2. When a divergence is detected, we return n, the rank from which $ | Z_n | &gt; 2 $. We calculate at most 20 terms: beyond, we suppose that the sequence converges and we return 20.</p>
 <p>We give the algorithm in algorithmic language. Translate it as a function <code>getMandelbrotDivergenceSpeed (Complex): Number</code>.</p>
-<table>
-<tr>
-<th colspan="2">SpeedDevergence (c: Complex): integer</th>
-</tr>
-<tr>
-<th>Data:</th>
-<td>c: Complex, the coordinates of a pixel such as $(c.re, c.im)$ $E [0,1] ^2$</td>
-</tr>
-<tr>
-<th>Local variable:</th>
-<td>z: Complex, the term of the sequence $Z$ at rank $n$</td>
-</tr>
-<tr>
-<th>Local variable:</th>
-<td>n: integer the currently calculated rank </td>
-</tr>
-<tr>
-<th>Result:</th>
-<td>Returns the rank $[0, 19]$ from which the divergence is found or $20$ otherwise</td>
-</tr>
-</table>
+<table><br><tr><br><th colspan="2">SpeedDevergence (c: Complex): integer</th><br></tr><br><tr><br><th>Data:</th><br><td>c: Complex, the coordinates of a pixel such as $(c.re, c.im)$ $E [0,1] ^2$</td><br></tr><br><tr><br><th>Local variable:</th><br><td>z: Complex, the term of the sequence $Z$ at rank $n$</td><br></tr><br><tr><br><th>Local variable:</th><br><td>n: integer the currently calculated rank </td><br></tr><br><tr><br><th>Result:</th><br><td>Returns the rank $[0, 19]$ from which the divergence is found or $20$ otherwise</td><br></tr><br></table>
 
 <p>beginning</p>
 <ul>
